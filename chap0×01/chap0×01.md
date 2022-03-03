@@ -149,14 +149,27 @@ uname -a
 
     ![Alibaba_Cloud_Linux](img/Alibaba_Cloud_Linux.png)
 
-  - 与本地上传到虚拟机的语法相同，用scp语句将测试文件`test.txt`上传到阿里云的Linux虚拟系统
+  - 分别输入代码查看阿里云平台虚拟主机的Linux发行版本和内核版本
 
+    - ```shell
+      lsb_release -a #查看发行版本
+      uname -a #查看内核版本
+      ```
+  
+      ![Alibaba_Cloud_virtual_system_version_information](img/Alibaba_Cloud_virtual_system_version_information.png)
+  
+    - 可以看到，阿里云平台的虚拟系统的发行版本是**CentOS 7.7.1908**
+  
+      内核版本为**kernel-3.10.0-1062**
+  
+  - 与本地上传到虚拟机的语法相同，用scp语句将测试文件`test.txt`上传到阿里云的Linux虚拟系统
+  
   ```shell
   scp C:/Users/86150/Desktop/test.txt root@139.224.249.188:remote_folder
   ```
-
+  
   ![Transfer_files_remotely](img/Transfer_files_remotely.png)
-
+  
   - 输入密码后，可以看到测试文件已经上传成功
 
 
