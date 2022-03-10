@@ -129,10 +129,10 @@ sudo find ./ -type f -name "*666*"
 ​		2、找到 `/tmp` 目录及其所有子目录下，文件内容包含 `666` 的所有文件
 
 ```shell
-sudo grep -r "666" ./
+sudo grep -r "666" ./ --exclude=*.cast # 通过"--exclude"排除因为asciinema录制会在当前目录写入后缀为“.cast”文件而导致查找乱码的问题。
 ```
 
-[![asciicast](https://asciinema.org/a/v3XYwM9PZ6lpVWh0ShsjfXb78.svg)](https://asciinema.org/a/v3XYwM9PZ6lpVWh0ShsjfXb78)
+[![asciicast](https://asciinema.org/a/2Qtv7mvqBBhHO0fpwZTSH17Th.svg)](https://asciinema.org/a/2Qtv7mvqBBhHO0fpwZTSH17Th)
 
 ------
 
@@ -241,6 +241,8 @@ df -h # 查看每个根路径的分区大小
   使用scp拷贝文件时语法不当，在此感谢黄玮老师的指导，成功传输文件。
 
 - 在用asciinema录制“在 `/tmp` 目录及其所有子目录下，文件内容包含 `666` 的所有文件”过程中发现可能asciinema会在当前目录下写入文件，导致读取乱码。
+
+  通过"--exclude"排除因为asciinema录制会在当前目录写入后缀为“.cast”文件而导致查找乱码的问题。
 
 ------
 
