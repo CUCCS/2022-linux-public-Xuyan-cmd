@@ -222,6 +222,25 @@ df -h # 查看每个根路径的分区大小
 
 ------
 
+## 结果汇总
+
+|      Linux发行版本      |                     Ubuntu（20.04）                     |                        CentOS（7.7）                         |
+| :---------------------: | :-----------------------------------------------------: | :----------------------------------------------------------: |
+|     **安装软件包**      |                      `apt install`                      |                       `yum install -y`                       |
+|     **更新软件包**      |                      `apt upgrade`                      |                         `yum update`                         |
+|     **卸载软件包**      |                      `apt remove`                       |                         `yum remove`                         |
+|  **查看软件安装路径**   |                       `apt show`                        |                         `yum search`                         |
+|     **查找文件名**      |          `sudo find ./ -type f -name "*666*"`           |                    `find / -name '*666*'`                    |
+|    **查找文件内容**     |         `sudo grep -r "666" ./ --exclude=*.cas          |               `find . | xargs grep -ri '666'`                |
+| **文件的解压缩（zip）** |                    `zip` /`unzip -o`                    |                      `zip` /`unzip -o`                       |
+| **文件的解压缩（tar）** |                `tar -cvf` /  `tar -xvf`                 |                   `tar -cvf` /  `tar -xvf`                   |
+| **文件的解压缩（rar）** |                    `rar a` / `rar x`                    | wget https://www.rarlab.com/rar/rarlinux-x64-5.9.0.tar.gz   `tar -xzvf rarlinux-x64-5.9.0.tar.gz / rar a trainrar /train` |
+| **硬件信息获取（CPU）** | `cat /proc/cpuinfo | grep "physical id" | uniq | wc -l` |   cat /proc/cpuinfo \| grep name \| cut -f2 -d: \| uniq -c   |
+|        **内存**         |                        `free -m`                        |                           free -m                            |
+|        **硬盘**         |                        `df -hl`                         |                            df -hl                            |
+
+------
+
 ## 过程中遇到的问题
 
 - 由于阿里云平台提供的虚拟环境是CentOS（7.7）使得在安装包管理和查找文件方面与Ubuntu20.04有很多不同，这过程中的一些语法造成了困难。
