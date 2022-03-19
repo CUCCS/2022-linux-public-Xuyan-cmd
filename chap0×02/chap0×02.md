@@ -120,9 +120,20 @@ sudo grep -r "666" ./ --exclude=*.cast # 通过"--exclude"排除因为asciinema�
 
 [![asciicast](https://asciinema.org/a/2Qtv7mvqBBhHO0fpwZTSH17Th.svg)](https://asciinema.org/a/2Qtv7mvqBBhHO0fpwZTSH17Th)
 
+- **在阿里云平台（CentOS7.7）实现**：
+
+  ```shell
+  find / -name '*666*' # 查找文件名中包含“666”
+  find . | xargs grep -ri '666' # 查找文件内容包含“666”
+  ```
+
+  [![asciicast](https://asciinema.org/a/NT4Dlpf9Kv0xodX2jdmQbhAJK.svg)](https://asciinema.org/a/NT4Dlpf9Kv0xodX2jdmQbhAJK)
+
 ### **三、【文件压缩与解压缩】练习课件中 [文件压缩与解压缩](https://c4pr1c3.github.io/LinuxSysAdmin/chap0x02.md.html#/12/1) 一节所有提到的压缩与解压缩命令的使用方法**
 
 ##### 操作过程：
+
+- **在Ubuntu20.04上实现：**
 
 1、将Windows主机上的test.zip文件拷贝到虚拟机上，并在虚拟机上查看文件是否已经成功上传
 
@@ -133,9 +144,13 @@ ls -l # 查看是否上传成功
 
 ![Uploaded_successfully](img/Uploaded_successfully.png)
 
-2、用编码操作将Windows系统的zip文件成功解压缩
+2、进行相关代码操作如下
 
-[![asciicast](https://asciinema.org/a/Wbv1mlyuZ2Ce4olG7d6kvxEYf.svg)](https://asciinema.org/a/Wbv1mlyuZ2Ce4olG7d6kvxEYf)
+[![asciicast](https://asciinema.org/a/7alPTNOn2y6iIA3KNjd4bNoAa.svg)](https://asciinema.org/a/7alPTNOn2y6iIA3KNjd4bNoAa)
+
+- **在阿里云平台（CentOS7.7）实现**：
+
+  [![asciicast](https://asciinema.org/a/zsTD17kfQo2g2ffsLDhkmSSoH.svg)](https://asciinema.org/a/zsTD17kfQo2g2ffsLDhkmSSoH)
 
 ### **四、【跟练】 [子进程管理实验](https://asciinema.org/a/f3ux5ogwbxwo2q0wxxd0hmn54)**
 
@@ -194,7 +209,7 @@ df -h # 查看每个根路径的分区大小
 
 [![asciicast](https://asciinema.org/a/9qkFmpbp8wcz5gzFBel6abw9T.svg)](https://asciinema.org/a/9qkFmpbp8wcz5gzFBel6abw9T) 
 
-|      版本    | ubuntu                 | CentOS     |
+|      版本    | Ubuntu（20.04）         | CentOS（7.7） |
 | ---        |    ----              |          ---   |
 | 安装应用      | ```apt install```        | ```yum install -y```   |
 | 卸载应用      |```sudo apt-get --purge remove tshark```        | ```yum remove ```     |
