@@ -38,8 +38,6 @@
 
 ## 配置asciinema
 
-------
-
 按照官网doc操作
 
 ```shell
@@ -50,11 +48,7 @@ asciinema auth
 
 ![configure_asciinema](img/configure_asciinema.png)
 
-------
-
 ### **一、【软件包管理】在目标发行版上安装 `tmux` 和 `tshark` ；查看这 2 个软件被安装到哪些路径；卸载 `tshark` ；验证 `tshark` 卸载结果**。
-
-------
 
 ##### 	操作过程：
 
@@ -99,8 +93,6 @@ yum -y remove wireshark #卸载
 
 [![asciicast](https://asciinema.org/a/ffj41KhYmY2xd7oLErsOf0Ruj.svg)](https://asciinema.org/a/ffj41KhYmY2xd7oLErsOf0Ruj)
 
-------
-
 ### **二、【文件管理】复制以下**
 
 ```shell
@@ -111,8 +103,6 @@ cd /tmp && for i in $(seq 0 1024);do dir="test-$RANDOM";mkdir "$dir";echo "$RAND
 
 - 找到 `/tmp` 目录及其所有子目录下，文件名包含 `666` 的所有文件
 - 找到 `/tmp` 目录及其所有子目录下，文件内容包含 `666` 的所有文件
-
-------
 
 ##### 操作过程：
 
@@ -134,11 +124,7 @@ sudo grep -r "666" ./ --exclude=*.cast # 通过"--exclude"排除因为asciinema�
 
 [![asciicast](https://asciinema.org/a/2Qtv7mvqBBhHO0fpwZTSH17Th.svg)](https://asciinema.org/a/2Qtv7mvqBBhHO0fpwZTSH17Th)
 
-------
-
 ### **三、【文件压缩与解压缩】练习课件中 [文件压缩与解压缩](https://c4pr1c3.github.io/LinuxSysAdmin/chap0x02.md.html#/12/1) 一节所有提到的压缩与解压缩命令的使用方法**
-
-------
 
 ##### 操作过程：
 
@@ -155,21 +141,13 @@ ls -l # 查看是否上传成功
 
 [![asciicast](https://asciinema.org/a/Wbv1mlyuZ2Ce4olG7d6kvxEYf.svg)](https://asciinema.org/a/Wbv1mlyuZ2Ce4olG7d6kvxEYf)
 
-------
-
 ### **四、【跟练】 [子进程管理实验](https://asciinema.org/a/f3ux5ogwbxwo2q0wxxd0hmn54)**
-
-------
 
 ##### 操作过程：
 
 [![asciicast](https://asciinema.org/a/qas8vZ2E6qzWetCSLivVFMes5.svg)](https://asciinema.org/a/qas8vZ2E6qzWetCSLivVFMes5)
 
-------
-
 ### **五、【硬件信息获取】目标系统的 CPU、内存大小、硬盘数量与硬盘容量**
-
-------
 
 ##### 	操作过程：
 
@@ -218,28 +196,24 @@ df -hl # 查看磁盘剩余空间
 df -h # 查看每个根路径的分区大小
 ```
 
-[![asciicast](https://asciinema.org/a/9qkFmpbp8wcz5gzFBel6abw9T.svg)](https://asciinema.org/a/9qkFmpbp8wcz5gzFBel6abw9T)
+[![asciicast](https://asciinema.org/a/9qkFmpbp8wcz5gzFBel6abw9T.svg)](https://asciinema.org/a/9qkFmpbp8wcz5gzFBel6abw9T) 
 
-------
+|      版本    | ubuntu                 | CentOS     |
+| ---        |    ----              |          ---   |
+| 安装应用      | ```apt install```        | ```yum install -y```   |
+| 卸载应用      |```sudo apt-get --purge remove tshark```        | ```yum remove ```     |
+|查看安装路径|```dpkg -L tmux```|```rpm -qal \| grep ``` |
+|查找文件名|```sudo find / -name '*666*'```|``` find / -name '*666*'```|
+|查找文件内容|```sudo grep -r '666'./ --exclude=*.cast```|```find . \| xargs grep -ri '666'```|
+|zip压缩与解压缩|```zip ```<br>```unzip -o```|```zip```<br>```unzip -o```|
+|gzip压缩与解压缩|```gzip```<br>```gzip -dv```|```gzip```<br>```gzip -dv```|
+|tar压缩与解压缩|```tar -cvf```<br>```tar -xvf```|```tar -cvf```<br>```tar -xvf```|
+|bzip2压缩与解压缩|```bzip2```<br>```bunzip2```|```bzip2```<br>```bunzip2```|
+|7z压缩与解压缩|```7z a -t7z -r```<br>```7z x 1.7z -r -o./```|```7za a -t7z ```<br>```7za x 1.7z -r -o./```|
+|rar压缩与解压缩|```rar a```<br>```rar x```|```wget http://rarlab.com/rar/rarlinux-x64-5.3.0.tar.gz --no-check-certificate```<br>```tar解压```<br>```cd rar```<br>```make```<br>```rar a ```<br>```rar x```|
+|硬件信息获取|```cat /proc/cpuinfo \|grep 'model name'获取目标系统CPU```<br>```cat /proc/meminfo \|grep MemTotal 查看内存大小```<br>```sudo fdisk -l \|grep Disk查看硬盘信息```|```grep 'model name'/proc/cpuinfo获取目标系统CPU```<br>```grep MemTotal /proc/meminfo获取内存大小```<br>```fdisk -l \|grep Disk查看硬盘信息```|
 
-## 结果汇总
 
-|      Linux发行版本      |                     Ubuntu（20.04）                     |                        CentOS（7.7）                         |
-| :---------------------: | :-----------------------------------------------------: | :----------------------------------------------------------: |
-|     **安装软件包**      |                      `apt install`                      |                       `yum install -y`                       |
-|     **更新软件包**      |                      `apt upgrade`                      |                         `yum update`                         |
-|     **卸载软件包**      |                      `apt remove`                       |                         `yum remove`                         |
-|  **查看软件安装路径**   |                       `apt show`                        |                         `yum search`                         |
-|     **查找文件名**      |          `sudo find ./ -type f -name "*666*"`           |                    `find / -name '*666*'`                    |
-|    **查找文件内容**     |         `sudo grep -r "666" ./ --exclude=*.cas          |               `find . | xargs grep -ri '666'`                |
-| **文件的解压缩（zip）** |                    `zip` /`unzip -o`                    |                      `zip` /`unzip -o`                       |
-| **文件的解压缩（tar）** |                `tar -cvf` /  `tar -xvf`                 |                   `tar -cvf` /  `tar -xvf`                   |
-| **文件的解压缩（rar）** |                    `rar a` / `rar x`                    | wget https://www.rarlab.com/rar/rarlinux-x64-5.9.0.tar.gz   `tar -xzvf rarlinux-x64-5.9.0.tar.gz / rar a trainrar /train` |
-| **硬件信息获取（CPU）** | `cat /proc/cpuinfo | grep "physical id" | uniq | wc -l` |   cat /proc/cpuinfo \| grep name \| cut -f2 -d: \| uniq -c   |
-|        **内存**         |                        `free -m`                        |                           free -m                            |
-|        **硬盘**         |                        `df -hl`                         |                            df -hl                            |
-
-------
 
 ## 过程中遇到的问题
 
@@ -263,7 +237,7 @@ df -h # 查看每个根路径的分区大小
 
   通过"--exclude"排除因为asciinema录制会在当前目录写入后缀为“.cast”文件而导致查找乱码的问题。
 
-------
+
 
 ## 参考资料
 
