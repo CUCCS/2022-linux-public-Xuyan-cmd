@@ -1,15 +1,11 @@
 # Linux网络与系统管理实验（二）From GUI to CLI
 
-------
-
 ## 实验软件环境
 
 - **VirtualBox 6.1**
 - **Ubuntu 20.04.02 Server 64bit**
 - **阿里云平台（CentOS7.7）**
 - **在 [asciinema](https://asciinema.org/) 注册一个账号，并在本地安装配置好asciinema**
-
-------
 
 ## 实验要求
 
@@ -210,8 +206,8 @@ df -h # 查看每个根路径的分区大小
 |tar压缩与解压缩|```tar -cvf```<br>```tar -xvf```|```tar -cvf```<br>```tar -xvf```|
 |bzip2压缩与解压缩|```bzip2```<br>```bunzip2```|```bzip2```<br>```bunzip2```|
 |7z压缩与解压缩|```7z a -t7z -r```<br>```7z x 1.7z -r -o./```|```7za a -t7z ```<br>```7za x 1.7z -r -o./```|
-|rar压缩与解压缩|```rar a```<br>```rar x```|```wget http://rarlab.com/rar/rarlinux-x64-5.3.0.tar.gz --no-check-certificate```<br>```tar解压```<br>```cd rar```<br>```make```<br>```rar a ```<br>```rar x```|
-|硬件信息获取|```cat /proc/cpuinfo \|grep 'model name'获取目标系统CPU```<br>```cat /proc/meminfo \|grep MemTotal 查看内存大小```<br>```sudo fdisk -l \|grep Disk查看硬盘信息```|```grep 'model name'/proc/cpuinfo获取目标系统CPU```<br>```grep MemTotal /proc/meminfo获取内存大小```<br>```fdisk -l \|grep Disk查看硬盘信息```|
+|rar压缩与解压缩|```rar a```<br>```rar x```|```wget http://rarlab.com/rar/rarlinux-x64-5.3.0.tar.gz --no-check-certificate```<br>```tar``` #解压<br>```cd rar```<br>```make```<br>```rar a ```<br>```rar x```|
+|硬件信息获取|```cat /proc/cpuinfo \|grep 'model name'```# 获取目标系统CPU<br>```cat /proc/meminfo \|grep MemTotal ```#查看内存大小<br>```sudo fdisk -l \|grep Disk```# 查看硬盘信息|```grep 'model name'/proc/cpuinfo```# 获取目标系统CPU<br>```grep MemTotal /proc/meminfo``` # 获取内存大小<br>```fdisk -l \|grep Disk``` # 查看硬盘信息|
 
 
 
@@ -240,8 +236,6 @@ df -h # 查看每个根路径的分区大小
 
 
 ## 参考资料
-
-------
 
 [第二章课件](https://c4pr1c3.github.io/LinuxSysAdmin/chap0x02.md.html#/title-slide)
 
