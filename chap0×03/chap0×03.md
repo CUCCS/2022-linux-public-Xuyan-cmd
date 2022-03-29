@@ -11,8 +11,6 @@
 
 ## 实验内容
 
-
-
 - ### 根据[Systemd 入门教程：命令篇](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html)完成相关Systemd基本操作
 
 - ### 根据[Systemd 入门教程：实战篇](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html)完成相关操作
@@ -22,8 +20,6 @@
 ------
 
 ## 一、根据[Systemd 入门教程：命令篇](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html)完成相关Systemd基本操作
-
-------
 
 ### 3.2 systemd-analyze
 
@@ -431,8 +427,6 @@ Systemd 统一管理所有 Unit 的启动日志。带来的好处就是，可以
 
 [![asciicast](https://asciinema.org/a/97CYOetoslBfnK3XbHJa46RnH.svg)](https://asciinema.org/a/97CYOetoslBfnK3XbHJa46RnH)
 
-------
-
 ## 二、根据[Systemd 入门教程：实战篇](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html)完成相关操作
 
 ------
@@ -441,7 +435,7 @@ Systemd 统一管理所有 Unit 的启动日志。带来的好处就是，可以
 
 [![asciicast](https://asciinema.org/a/1QCJFFNw4Du49vBGRf9v7QnVL.svg)](https://asciinema.org/a/1QCJFFNw4Du49vBGRf9v7QnVL)
 
-------
+
 
 ## 三、自查清单
 
@@ -525,8 +519,6 @@ lvreduce -L -<容量> <目录>    #减容
 
 - 重新启动服务`sudo systemctl restart ××××`
 
-------
-
 ## 过程中遇到的问题
 
 ------
@@ -546,8 +538,6 @@ lvreduce -L -<容量> <目录>    #减容
 - 在使用LVM分区进行动态扩容过程中没有把挂载的分区删除导致出现错误
 
   解决办法：删除挂载分区，重新进行分区扩容分配
-
-------
 
 ## 参考资料
 
