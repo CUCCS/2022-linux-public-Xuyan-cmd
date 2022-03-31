@@ -12,30 +12,30 @@ script:
   - 7z x -ot web_log.tsv.7z
   - mv t/web_log.tsv web_log.tsv
   - ls -l
-  - bash task01.sh -h
-  - bash task01.sh -q 50
-  - bash task01.sh -r 90%
-  - bash task01.sh -w 10 CUC
-  - bash task01.sh -p Pre
-  - bash task01.sh -s Suf
-  - bash task01.sh -t
+  - bash task1.sh -h
+  - bash task1.sh -q 50
+  - bash task1.sh -r 90%
+  - bash task1.sh -w 10 CUC
+  - bash task1.sh -p Pre
+  - bash task1.sh -s Suf
+  - bash task1.sh -t
   - echo "=============================="
-  - bash task02.sh -h
-  - bash task02.sh -s
-  - bash task02.sh -p
-  - bash task02.sh -n
-  - bash task02.sh -a
+  - bash task2.sh -h
+  - bash task2.sh -s
+  - bash task2.sh -p
+  - bash task2.sh -n
+  - bash task2.sh -a
   - echo "=============================="
-  - bash task03.sh -h
-  - bash task03.sh -o
-  - bash task03.sh -i
-  - bash task03.sh -u
-  - bash task03.sh -c
-  - bash task03.sh -f
-  - bash task03.sh -s /whats-new.html
-  - shellcheck task01.sh
-  - shellcheck task02.sh
-  - shellcheck task03.sh
+  - bash task3.sh -h
+  - bash task3.sh -o
+  - bash task3.sh -i
+  - bash task3.sh -u
+  - bash task3.sh -c
+  - bash task3.sh -f
+  - bash task3.sh -s /whats-new.html
+  - shellcheck task1.sh
+  - shellcheck task2.sh
+  - shellcheck task3.sh
 notifications:
   email:
     on_success: never
