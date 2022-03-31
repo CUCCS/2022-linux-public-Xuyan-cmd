@@ -11,30 +11,30 @@ script:
   - 7z x -ot web_log.tsv.7z
   - mv t/web_log.tsv web_log.tsv
   - ls -l
-  - bash codefile/task1.sh -h
-  - bash codefile/task1.sh img/ -q 50
-  - bash codefile/task1.sh img/ -r 90%
-  - bash codefile/task1.sh img/ -w 10 CUC
-  - bash codefile/task1.sh img/ -p Pre
-  - bash codefile/task1.sh img/ -s Suf
-  - bash codefile/task1.sh img/ -t
+  - bash task1.sh -h
+  - bash task1.sh img/ -q 50
+  - bash task1.sh img/ -r 90%
+  - bash task1.sh img/ -w 10 CUC
+  - bash task1.sh img/ -p Pre
+  - bash task1.sh img/ -s Suf
+  - bash task1.sh img/ -t
   - echo "=============================="
-  - bash codefile/task2.sh -h
-  - bash codefile/task2.sh -s worldcupplayerinfo.tsv
-  - bash codefile/task2.sh -p worldcupplayerinfo.tsv
-  - bash codefile/task2.sh -n worldcupplayerinfo.tsv
-  - bash codefile/task2.sh -a worldcupplayerinfo.tsv
+  - bash task2.sh -h
+  - bash task2.sh -s worldcupplayerinfo.tsv
+  - bash task2.sh -p worldcupplayerinfo.tsv
+  - bash task2.sh -n worldcupplayerinfo.tsv
+  - bash task2.sh -a worldcupplayerinfo.tsv
   - echo "=============================="
-  - bash codefile/task3.sh -h
-  - bash codefile/task3.sh -o web_log.tsv
-  - bash codefile/task3.sh -i web_log.tsv
-  - bash codefile/task3.sh -u web_log.tsv
-  - bash codefile/task3.sh -c web_log.tsv
-  - bash codefile/task3.sh -f web_log.tsv
-  - bash codefile/task3.sh -s /whats-new.html
-  - shellcheck codefile/task1.sh
-  - shellcheck codefile/task2.sh
-  - shellcheck codefile/task3.sh
+  - bash task3.sh -h
+  - bash task3.sh -o web_log.tsv
+  - bash task3.sh -i web_log.tsv
+  - bash task3.sh -u web_log.tsv
+  - bash task3.sh -c web_log.tsv
+  - bash task3.sh -f web_log.tsv
+  - bash task3.sh -s /whats-new.html
+  - shellcheck task1.sh
+  - shellcheck task2.sh
+  - shellcheck task3.sh
 notifications:
   email:
     on_success: never
