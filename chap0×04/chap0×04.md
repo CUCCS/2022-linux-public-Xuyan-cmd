@@ -7,6 +7,7 @@
 - **VirtualBox 6.1**
 - **Ubuntu 20.04.02 Server 64bit**
 - **Travis CI**
+- **VsCode（已安装相应环境依赖）**
 
 ## 实验内容
 
@@ -47,13 +48,72 @@
 - 所有源代码文件必须单独提交并提供详细的`-help`脚本内置帮助信息
 - 任务三的所有统计数据结果要求写入独立实验报告
 
+## 操作过程
 
+#### **任务一**
 
+- 安装`imagemagick`和`shellcheck`，并用远程从本地上传需要的图片文件。
 
+  ```shell
+  sudo apt-get update
+  sudo apt-get install -y shellcheck
+  sudo apt-get install imagemagick
+  ```
 
+![contents_of_the_current_folder](pending_image/contents_of_the_current_folder.png)
 
+- 编写任务一脚本task01.sh
 
+![task01_sh](pending_image/task01_sh.png)
 
+- 测试脚本结果
+
+![Image_Processing_Test 01](pending_image/Image_Processing_Test 01.png)
+
+![Image_Processing_Test 02 ](pending_image/Image_Processing_Test 02 .png)
+
+#### **任务二**   [[查看实验结果]](task02 _lab_ report.md)
+
+- 将所需文件下载到本地。
+
+  ```shell
+  wget "https://c4pr1c3.gitee.io/linuxsysadmin/exp/chap0x04/worldcupplayerinfo.tsv"
+  ```
+
+- 编写脚本
+
+  ![task02_sh](pending_image/task02_sh.png)
+
+- 测试脚本结果
+
+  ![World_Cup_Athlete_Statistics](pending_image/World_Cup_Athlete_Statistics.png)
+
+#### **任务三** [[查看实验结果]](task03_lab_report.md)
+
+- 提前安装`p7zip-full`
+
+  ```shell
+  sudo apt-get install p7zip-full
+  ```
+
+- 将所需文件下载到本地并解压
+
+  ```shell
+  wget "https://c4pr1c3.gitee.io/linuxsysadmin/exp/chap0x04/worldcupplayerinfo.tsv"
+  7z x web_log.tsv.7z
+  ```
+
+​		![get_web_IP](pending_image/get_web_IP.png)
+
+- 编写脚本和相关内容
+
+  ![task03_sh](pending_image/task03_sh.png)
+
+- 测试脚本结果,将收集到的数据整成txt文件保存下来
+
+  ![web_data_collection_process](pending_image/web_data_collection_process.png)
+
+  
 
 ## 过程中遇到的问题
 
