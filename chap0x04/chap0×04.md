@@ -68,11 +68,13 @@
 
 - 测试脚本结果
 
-![Image_Processing_Test 01](pending_image/Image_Processing_Test 01.png)
+  ![Image_Processing_Test 01](pending_image/Image_Processing_Test 01.png)
 
-![Image_Processing_Test 02 ](pending_image/Image_Processing_Test 02 .png)
+  
+  
+  ![Image_Processing_Test 02 ](pending_image/Image_Processing_Test 02 .png)
 
-#### **任务二**[[查看实验结果报告]](task02 _lab_ report.md)
+#### **任务二**[[查看实验结果报告]](task02_lab_ report.md)
 
 - 将所需文件下载到本地。
 
