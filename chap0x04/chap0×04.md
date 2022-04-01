@@ -72,7 +72,7 @@
 
 ![taskone_part_two](pending_image/taskone_part_two.png)
 
-#### **任务二**  [[查看实验结果报告]](task02_lab_ report.md)
+#### **任务二**
 
 - 将所需文件下载到本地。
 
