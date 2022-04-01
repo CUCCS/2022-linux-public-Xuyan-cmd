@@ -66,13 +66,11 @@
 
 ![task01_sh](pending_image/task01_sh.png)
 
-- 测试脚本结果
+**测试结果**：
 
-  ![Image_Processing_Test 01](pending_image/Image_Processing_Test 01.png)
+![taskone_part_one](pending_image/taskone_part_one.png)
 
-  如下：
-  
-  ![Image_Processing_Test 02 ](pending_image/Image_Processing_Test 02 .png)
+![taskone_part_two](pending_image/taskone_part_two.png)
 
 #### **任务二**  [[查看实验结果报告]](task02_lab_ report.md)
 
