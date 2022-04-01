@@ -9,7 +9,6 @@ script:
   - wget "https://c4pr1c3.gitee.io/linuxsysadmin/exp/chap0x04/worldcupplayerinfo.tsv"
   - wget "https://c4pr1c3.github.io/LinuxSysAdmin/exp/chap0x04/web_log.tsv.7z"
   - 7z x -ot web_log.tsv.7z
-  - mv t/web_log.tsv web_log.tsv
   - ls -l
   - cd chap0x04/
   - cd codefile/
@@ -22,10 +21,10 @@ script:
   - bash task1.sh -t
   - echo "=============================="
   - bash task2.sh -h
-  - bash task2.sh -s worldcupplayerinfo.tsv
-  - bash task2.sh -p worldcupplayerinfo.tsv
-  - bash task2.sh -n worldcupplayerinfo.tsv
-  - bash task2.sh -a worldcupplayerinfo.tsv
+  - bash task2.sh -s 
+  - bash task2.sh -p 
+  - bash task2.sh -n 
+  - bash task2.sh -a 
   - echo "=============================="
   - bash task3.sh -h
   - bash task3.sh -o 
