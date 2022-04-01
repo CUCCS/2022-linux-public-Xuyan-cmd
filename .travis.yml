@@ -12,7 +12,9 @@ script:
   - 7z x -ot web_log.tsv.7z
   - ls -l
   - cd chap0x04/  
-  - cd codefile/
+  - cd codefile/ 
+  - echo "=============================="
+  - echo Task1
   - bash task1.sh -h
   - bash task1.sh -q 50
   - bash task1.sh -r 90%
@@ -21,12 +23,14 @@ script:
   - bash task1.sh -s Suf
   - bash task1.sh -t
   - echo "=============================="
+  - echo Task2
   - bash task2.sh -h
   - bash task2.sh -s 
   - bash task2.sh -p 
   - bash task2.sh -n 
   - bash task2.sh -a 
   - echo "=============================="
+  - echo Task3
   - bash task3.sh -h
   - bash task3.sh -o 
   - bash task3.sh -i 
