@@ -10,7 +10,7 @@ script:
   - wget "https://c4pr1c3.github.io/LinuxSysAdmin/exp/chap0x04/web_log.tsv.7z"
   - 7z x -ot web_log.tsv.7z
   - ls -l
-  - cd chap0x04/
+  - cd chap0×04/
   - cd codefile/
   - bash task1.sh -h
   - bash task1.sh -q 50
