@@ -525,19 +525,67 @@ lvreduce -L -<容量> <目录>    #减容
 
 - 在完成自动挂载的过程中出现`mount: /mnt/xxx: wrong fs type, bad option, bad superblock on xxx...` 
 
-  解决办法：`sudo apt-get install virtualbox-guest-utils`
+  解决方法：`sudo apt-get install virtualbox-guest-utils`
 
 - 在使用自动挂载的文件夹在虚拟机系统无法找到
 
-  解决办法：需要在根目录下进行查找
+  解决方法：需要在根目录下进行查找
 
 - 在解决如何将一个用户添加到一个用户组的过程中对于如何操作代码有疑问
 
-  解决办法：查阅相关文档，了解到chomd这种语句的具体相关用法
+  解决方法：查阅相关文档，了解到chomd这种语句的具体相关用法
 
 - 在使用LVM分区进行动态扩容过程中没有把挂载的分区删除导致出现错误
 
-  解决办法：删除挂载分区，重新进行分区扩容分配
+  解决方法：删除挂载分区，重新进行分区扩容分配
+  
+- 在自查清单中完成将一个用户添加到一个用户组时，刚开始由于没有输入正确的用户组出现了错误。查阅了相关资料后，执行`cat /etc/passwd`命令，查看用户组，并选择了lp用户组完成本题。之后执行`usermod -a -G lp guest`命令后出现usermod: cannot lock /etc/passwd; try again later报错。
+
+  解决方法：在网上查阅了相关资料后，将命令更改为`sudo -- usermod –G groupname username`，这样就解决了将用户加入到用户组时报标题的错，成功加入之后，需要重新接连服务器，该user就拥有了该group的权限，问题得以解决。
+
+- 在执行脚本的过程中遇到了对于脚本运行和编写的知识空缺
+
+  解决方法：
+
+  - 首先在指定目录下使用 `cat`命令创建一个名为 `xxx.sh`的脚本文件
+
+  - 然后在终端中键入你想要的文本内容或命令语句 例：
+
+    ```shell
+    $ echo 'hello world!'
+    或
+    #!/bin/sh
+    
+    $ touch /home/cuc/script/StopTest.txt
+    ```
+
+- 然后直接通过`bash xxx.sh`来执行编写的脚本即可。
+
+- **问题**：执行修改时区时报错
+
+  ```shell
+  Failed to parse time specification 'YYYY-MM-DD': Invalid argument
+  ```
+
+- **解决方法**： 先关闭时间同步
+
+  ```shell
+  timedatectl set-ntp no
+  ```
+
+- 然后执行
+
+  ```shell
+  sudo timedatectl set-time 2021-3-31
+  ```
+
+- 再开启时间同步
+
+  ```shell
+  timedatectl set-ntp yes
+  ```
+
+- 修改成功
 
 ## 参考资料
 
@@ -554,3 +602,10 @@ lvreduce -L -<容量> <目录>    #减容
 [Using LVM to realize dynamic partition expansion in Linux](https://blog.csdn.net/seteor/article/details/6708025)
 
 [Systemd Service Management Tutorial](https://cloud.tencent.com/developer/article/1516125)
+
+[Linux read partition table file, Linux disk partition table, file system view and operation](https://blog.csdn.net/weixin_34502439/article/details/116693398)
+
+[Fixing a systemd service 203/EXEC failure (no such file or directory)](https://devpeace.com/bash/45776003/fixing-a-systemd-service-203-exec-failure-no-such-file-or-directory)
+
+[Configure a simple auto-restart service with systemd](https://blog.csdn.net/weixin_34261415/article/details/89053213?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_antiscanv2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_antiscanv2&utm_relevant_index=2)
+
