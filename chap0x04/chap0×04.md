@@ -84,7 +84,7 @@
 
   ![task02_sh](pending_image/task02_sh.png)
 
-- 测试脚本结果
+- 测试脚本结果[[任务二结果]](task02_lab_report.md)
 
   ![World_Cup_Athlete_Statistics](pending_image/World_Cup_Athlete_Statistics.png)
 
