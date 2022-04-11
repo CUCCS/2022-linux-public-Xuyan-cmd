@@ -72,7 +72,7 @@
 
 ![taskone_part_two](pending_image/taskone_part_two.png)
 
-#### **任务二**
+#### **任务二** [[查看实验结果报告]](task02_lab_report.md)
 
 - 将所需文件下载到本地。
 
@@ -84,7 +84,7 @@
 
   ![task02_sh](pending_image/task02_sh.png)
 
-- 测试脚本结果[[任务二结果]](task02_lab_report.md)
+- 测试脚本结果
 
   ![World_Cup_Athlete_Statistics](pending_image/World_Cup_Athlete_Statistics.png)
 
