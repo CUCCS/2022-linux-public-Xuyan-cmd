@@ -50,6 +50,8 @@
 
 #### **以下代码执行情况可查看**[我的Travis CI](https://app.travis-ci.com/github/CUCCS/2022-linux-public-Xuyan-cmd)
 
+![Travis_running_results](pending_image/Travis_running_results.png)
+
 #### **任务一**
 
 - 安装`imagemagick`和`shellcheck`，并用远程从本地上传需要的图片文件。
