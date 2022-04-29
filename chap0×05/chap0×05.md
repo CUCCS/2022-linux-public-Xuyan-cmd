@@ -38,7 +38,7 @@
 
 ## 实验过程
 
-### 环境搭建
+### 一、环境搭建
 
 #### 更改主机hosts文件
 
@@ -305,6 +305,176 @@ sudo ln -s /etc/nginx/sites-available/dvwa.sec.cuc.edu.cn /etc/nginx/sites-enabl
 sudo nginx -t
 systemctl restart nginx.service
 ```
+
+- 成功访问dvwa
+
+![DVWA_interface](img/DVWA_interface.png)
+
+### 二、实验过程
+
+#### 使用VeryNginx反向代理Wordpress,DVWA
+
+- Matcher
+
+![dvwa_proxy_configuration](img/dvwa_proxy_configuration.png)
+
+![wp_proxy_configuration](img/wp_proxy_configuration.png)
+
+- Up Stream
+
+![proxy_pass_up_stream](img/proxy_pass_up_stream.png)
+
+- Proxy Pass
+
+![proxy_pass](img/proxy_pass.png)
+
+#### 安全加固要求
+
+##### 使用IP地址方式均无法访问上述任意站点，并向访客展示自定义的友好错误提示信息页面-1
+
+- Matcher
+
+![Security_hardening_matcher](img/Security_hardening_matcher.png)
+
+- Response
+
+![Security_hardening_response](img/Security_hardening_response.png)
+
+- Filter
+
+![Security_hardening_filter](img/Security_hardening_filter.png)
+
+- 结果
+
+![error_message -1](img/error_message -1.png)
+
+##### Damn Vulnerable Web Application (DVWA)只允许白名单上的访客来源IP，其他来源的IP访问均向访客展示自定义的友好错误提示信息页面-2
+
+- Matcher
+
+![Whitelist_matchers](img/Whitelist_matchers.png)
+
+- Response
+
+![whitelist_response](img/whitelist_response.png)
+
+- Filter
+
+![whitelist_filter](img/whitelist_filter.png)
+
+- 结果
+
+![error_message-2](img/error_message-2.png)
+
+##### 在不升级Wordpress版本的情况下，通过定制VeryNginx的访问控制策略规则，热修复[WordPress < 4.7.1 - Username Enumeration](https://www.exploit-db.com/exploits/41497/)
+
+- 漏洞载入
+
+  - 拷贝漏洞文本到Linux主机，修改相应文本
+
+    ```shell
+    $url = "http://wp.sec.cuc.edu.cn/";
+    ```
+
+  - 安装依赖包
+
+    ```shell
+    idchannov@id-srv:~$ sudo apt install php7.2-cli
+    ```
+
+  - 执行脚本
+
+    ```shell
+    idchannov@id-srv:~$ php err.php
+    ```
+
+  - 制定安全策略
+
+    - 在**Basic**中添加匹配规则
+
+      
+
+    - 在**Custom Action**中添加过滤条件
+
+      
+
+- 通过配置VeryNginx的Filter规则实现对Damn Vulnerable Web Application (DVWA)的SQL注入实验在低安全等级条件下进行防护
+
+  - 在**Basic**中添加匹配规则
+
+    ![sql_protect](img/sql_protect.png)
+
+  - 在**Custom Action**中添加过滤条件
+
+    ![sql_protect_filter_condition](img/sql_protect_filter_condition.png)
+
+##### 通过配置VeryNginx的Filter规则实现对Damn Vulnerable Web Application (DVWA)的SQL注入实验在低安全等级条件下进行防护
+
+- 将security level修改为low
+
+![sql_attack](img/sql_attack.png)
+
+- Matcher
+
+![attack_sql_matcher](img/attack_sql_matcher.png)
+
+- Filter
+
+![attack_sql_filter](img/attack_sql_filter.png)
+
+- 结果
+
+![attack_sql_response](img/attack_sql_response.png)
+
+#### VeryNginx配置要求
+
+##### VeryNginx的Web管理页面仅允许白名单上的访客来源IP，其他来源的IP访问均向访客展示自定义的友好错误提示信息页面-3
+
+- 在**Basic**中添加匹配规则
+
+![BasicMatch](img/BasicMatch.png)
+
+- 在**Basic**中添加**友好错误提示信息页面-3**的响应信息
+
+![Basicresponse](img/Basicresponse.png)
+
+- 在**Custom Action**中添加过滤条件
+
+![Basic_condition](img/Basic_condition.png)
+
+- 结果
+
+![BasicResult](img/BasicResult.png)
+
+##### 通过定制VeryNginx的访问控制策略规则实现：
+
+- 限制DVWA站点的单IP访问速率为每秒请求数 < 50
+
+- 限制Wordpress站点的单IP访问速率为每秒请求数 < 20
+
+- 超过访问频率限制的请求直接返回自定义**错误提示信息页面-4**
+
+  - 设置自定义response
+
+  - ![feedback_response](img/feedback_response.png)
+
+  - 设置频率限制Frequency Limit
+  - ![Visit_frequency](img/Visit_frequency.png)
+
+  - 结果 
+  - ![Visit_too_frequently_results](img/Visit_too_frequently_results.png)
+
+- 禁止curl访问
+
+  - 添加matcher
+  - ![curl_matcher](img/curl_matcher.png)
+
+  - 添加filter
+  - ![curl_filter_settings](img/curl_filter_settings.png)
+
+  - 结果 
+  
+  - ![No_Access](img/No_Access.png)
 
 ## 过程中遇到的问题
 
