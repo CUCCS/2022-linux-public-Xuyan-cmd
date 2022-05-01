@@ -478,14 +478,96 @@ systemctl restart nginx.service
 
 ## 过程中遇到的问题
 
+- **按操作说明配置完WordPress后无法打开默认配置页面**
 
+  **解决办法：**
 
+  - 修正端口冲突
 
+    nginx: 8080
 
+    verynginx: 8005
 
+    wp.sec.cuc.edu.cn: 8001（试访问时加端口）
 
+    dvwa.sec.cuc.edu.cn: 8006（试访问时加端口）
 
+  - 修改Nginx的配置文件，修改属主为www-data，并使/etc/nginx/sites-enabled下的链接生效
 
+    ```shell
+    user	www-data;
+    ... ...
+    http {
+        # add
+        include /etc/nginx/sites-enabled/*;
+    }
+    ```
 
+  - 修改WordPress的配置文件，在index的开头添加index.php
+
+  - PHP-FPM进程的反向代理配置修正
+
+    fastcgi_pass unix:/var/run/php/php7.0-fpm.sock; --> fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+
+- **在配置VeryNginx的时候，总是无法运行VeryNginx，系统总是不能执行运行命令。**
+
+  **解决方法：**在`/opt`目录下进行VeryNginx的安装操作，因为执行VeryNginx命令的操作是在`/opt`目录下进行默认安装的，因此配置文件也需要在次目录下进行。
+
+- **无法通过Python运行启动VeryNginx，系统总是报错。**
+
+  **解决方法：**提前安装好Python确实的相关库
+
+  ```shell
+  #提前安装好相关Python所缺失的库
+  # zlib
+  sudo apt-get install zlib1g-dev
+  # pcre
+  sudo apt-get update 
+  sudo apt-get install libpcre3 libpcre3-dev
+  # gcc 
+  sudo apt install gcc
+  # make
+  sudo apt install make
+  # penssl library
+  sudo apt install libssl-dev
+  ```
+
+- **按操作说明配置完DVWA后无法打开默认配置页面**
+
+  **解决办法：**
+
+  - 修正数据库权限，由于直接仿照WordPress的操作所以在复制的时候没注意，把wordpress数据库的权限赋给了dvwauser
+
+    ```shell
+    mysql> grant all on dvwa.* to 'dvwauser'@'localhost' identified by 'dvwa123';
+    mysql> flush privileges;
+    ```
+
+  - 修改`/etc/php/7.2/fpm/php.ini`，如下：
+
+    ```shell
+    allow_url_include = on
+    allow_url_fopen = on
+    # safe_mode = off
+    # magic_quotes_gpc = off
+    display_errors = off
+    ```
 
 ## 参考资料
+
+- [How To Install Linux, Nginx, MySQL, PHP (LEMP stack) on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-on-ubuntu-20-04)
+
+- [VeryNginx官方文档](https://github.com/alexazhou/VeryNginx/blob/master/readme_zh.md)
+
+- [How To Install WordPress on Ubuntu 20.04 with a LAMP Stack](https://www.digitalocean.com/community/tutorials/how-to-installQwordpress-on-ubuntu-20-04-with-a-lamp-stack)
+
+- [WordPress/Nginx](https://www.nginx.com/resources/wiki/start/topics/recipes/wordpress/)
+
+- [WordPress Core < 4.7.1 - Username Enumeration](https://www.exploit-db.com/exploits/41497)
+
+- [Nginx+Php-fpm operation principle proxy and reverse proxy](https://www.cnblogs.com/wanglijun/p/10867426.html)
+
+- [PHP environment construction (correct configuration of nginx and php)](https://blog.csdn.net/aloha12/article/details/88852714)
+
+  
+
