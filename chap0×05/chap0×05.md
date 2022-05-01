@@ -480,7 +480,7 @@ systemctl restart nginx.service
 
 - **按操作说明配置完WordPress后无法打开默认配置页面**
 
-  **解决办法：**
+  **解决方法：**
 
   - 修正端口冲突
 
@@ -511,11 +511,11 @@ systemctl restart nginx.service
 
 - **在配置VeryNginx的时候，总是无法运行VeryNginx，系统总是不能执行运行命令。**
 
-  **解决方法：**在`/opt`目录下进行VeryNginx的安装操作，因为执行VeryNginx命令的操作是在`/opt`目录下进行默认安装的，因此配置文件也需要在次目录下进行。
+  **解决方法**：在`/opt`目录下进行VeryNginx的安装操作，因为执行VeryNginx命令的操作是在`/opt`目录下进行默认安装的，因此配置文件也需要在次目录下进行。
 
 - **无法通过Python运行启动VeryNginx，系统总是报错。**
 
-  **解决方法：**提前安装好Python确实的相关库
+  **解决方法**：提前安装好Python确实的相关库
 
   ```shell
   #提前安装好相关Python所缺失的库
