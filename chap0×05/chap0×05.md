@@ -346,7 +346,7 @@ systemctl restart nginx.service
 
 - 结果
 
-![error_message -1](img/error_message -1.png)
+![error_message](img/error_message.png)
 
 ##### Damn Vulnerable Web Application (DVWA)只允许白名单上的访客来源IP，其他来源的IP访问均向访客展示自定义的友好错误提示信息页面-2
 
