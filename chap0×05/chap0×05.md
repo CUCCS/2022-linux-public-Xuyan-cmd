@@ -396,7 +396,7 @@ systemctl restart nginx.service
 
     - 在**Custom Action**中添加过滤条件
 
-      ![Add filter conditions in Custom Action](img/Add filter conditions in Custom Action.png)
+      ![err_protect](img/err_protect.png)
 
 - 通过配置VeryNginx的Filter规则实现对Damn Vulnerable Web Application (DVWA)的SQL注入实验在低安全等级条件下进行防护
 
