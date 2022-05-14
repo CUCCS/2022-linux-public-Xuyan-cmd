@@ -392,11 +392,11 @@ systemctl restart nginx.service
 
     - 在**Basic**中添加匹配规则
 
-      
+      ![Basic_matching_rules](img/Basic_matching_rules.png)
 
     - 在**Custom Action**中添加过滤条件
 
-      
+      ![Add filter conditions in Custom Action](img/Add filter conditions in Custom Action.png)
 
 - 通过配置VeryNginx的Filter规则实现对Damn Vulnerable Web Application (DVWA)的SQL注入实验在低安全等级条件下进行防护
 
@@ -426,7 +426,7 @@ systemctl restart nginx.service
 
 ![attack_sql_response](img/attack_sql_response.png)
 
-#### VeryNginx配置要求
+#### **VeryNginx配置要求**
 
 ##### VeryNginx的Web管理页面仅允许白名单上的访客来源IP，其他来源的IP访问均向访客展示自定义的友好错误提示信息页面-3
 
@@ -472,7 +472,7 @@ systemctl restart nginx.service
   - 添加filter
   - ![curl_filter_settings](img/curl_filter_settings.png)
 
-  - 结果 
+  - 配置结果： 
   
   - ![No_Access](img/No_Access.png)
 
@@ -552,6 +552,10 @@ systemctl restart nginx.service
     # magic_quotes_gpc = off
     display_errors = off
     ```
+  
+  - **反向代理遇到的问题和总结：**
+    - 一开始同时使用 VeryNginx 和 Nginx 监听开放端口，导致部分实验直接绕过了 VeryNginx 访问到 Nginx，正确的做法是让 Nginx 只监听本地，用 VeryNginx 进行反向代理（仅开放 VeryNginx 监听的 80 端口）
+    - WordPress 的 https 配置卡壳了不久，因为限制 http / https 二选一，而且设置保存在数据库中，后来全使用 https 让反向代理 *假装* 同时支持 http / https，存在问题是使用 http 访问站点时，点击网页内容中的链接将会跳转到 https 。
 
 ## 参考资料
 
@@ -568,6 +572,8 @@ systemctl restart nginx.service
 - [Nginx+Php-fpm operation principle proxy and reverse proxy](https://www.cnblogs.com/wanglijun/p/10867426.html)
 
 - [PHP environment construction (correct configuration of nginx and php)](https://blog.csdn.net/aloha12/article/details/88852714)
+
+- [linux-2020-LyuLumos](https://github.com/CUCCS/linux-2020-LyuLumos/blob/ch0x05/ch0x05/%E7%AC%AC%E4%BA%94%E6%AC%A1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.md)
 
   
 
